@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ApplyForm from '../components/ApplyForm';
+
 function Home() {
   const [islogin, setIsLogin] = useState(false);
 
@@ -16,7 +19,11 @@ function Home() {
         <Body>
           <Freshman>
             <ButtonBox>
-              <ApplyBtn onClick={(e) => applyAndcontact(e)}>지원하기</ApplyBtn>
+              <ApplyBtn onClick={(e) => applyAndcontact(e)}>
+                <Link to="/apply" style={{ textDecoration: 'none' }}>
+                  지원하기
+                </Link>
+              </ApplyBtn>
               <ContactBtn onClick={(e) => applyAndcontact(e)}>
                 문의하기
               </ContactBtn>
