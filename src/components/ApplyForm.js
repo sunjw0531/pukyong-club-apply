@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+
 function ApplyForm() {
+  const [tALength, setTALength] = useState('');
   const {
     register,
     handleSubmit,
@@ -28,37 +31,93 @@ function ApplyForm() {
         <form
           onSubmit={handleSubmit((data) => {
             console.log(data);
+            alert('지원 내용을 검토 후 연락 드리겠습니다. 감사합니다.');
           })}
         >
-          <div>
-            <label for="name">이름</label>
-            <input
-              id="name"
-              {...register('name', { required: true })}
-              placeholder="이름"
-            />
+          <div style={{ backgroundColor: '#F5F5DC' }}>
+            <WritingDiv>
+              <label for="name">이름</label>
+              <FormInputS
+                id="name"
+                {...register('name', { required: true })}
+                placeholder="이름"
+              />
+            </WritingDiv>
+            <WritingDiv>
+              <label for="age">나이</label>
+              <FormInputS
+                id="age"
+                {...register('age', { required: true })}
+                placeholder="나이"
+              />
+            </WritingDiv>
+            <WritingDiv>
+              <label for="major">학과</label>
+              <FormInputS
+                id="major"
+                {...register('major', { required: true })}
+                placeholder="학과"
+              />
+            </WritingDiv>
+            <WritingDiv>
+              <label for="major">학번</label>
+              <FormInputS
+                id="studentNumber"
+                {...register('studentNumber', { required: true })}
+                placeholder="학번"
+              />
+            </WritingDiv>
+            <WritingDiv>
+              <label for="hobby">취미</label>
+              <FormInputS
+                id="hobby"
+                {...register('hobby', { required: true })}
+                placeholder="취미"
+              />
+            </WritingDiv>
+            <WritingDiv>
+              <label for="where">주로 게임하는 장소</label>
+              <br />
+              <input
+                type="checkbox"
+                {...register('where', { required: true })}
+                value="집"
+              />
+              집
+              <input
+                type="checkbox"
+                {...register('where', { required: true })}
+                value="피시방"
+              />
+              피시방
+            </WritingDiv>
+            <WritingDiv>
+              <label for="call">연락처</label>
+              <FormInputS
+                id="call"
+                {...register('call', { required: true })}
+                placeholder="전화번호 혹은 카카오톡 ID를 적어주세요"
+              />
+            </WritingDiv>
 
-            <label for="age">나이</label>
-            <input
-              id="age"
-              {...register('age', { required: true })}
-              placeholder="나이"
-            />
-            <label for="major">학과</label>
-            <input
-              id="major"
-              {...register('major', { required: true })}
-              placeholder="학과"
-            />
-            <label for="major">학번</label>
-            <input
-              id="studentNumber"
-              {...register('studentNumber', { required: true })}
-              placeholder="학번"
-            />
+            <WritingDiv>
+              <label for="introduce">자기소개 및 하고 싶은 말</label>
+              <DivTextarea>
+                <FormTextarea
+                  id="introduce"
+                  maxLength="400"
+                  rows="10"
+                  cols="50"
+                  {...register('introduce', { required: true })}
+                  placeholder="400자 이내로 입력해주세요."
+                  onChange={(e) => setTALength(e.target.value.length)}
+                />
+                <span>{tALength === '' ? 0 : tALength}/400자</span>
+              </DivTextarea>
+            </WritingDiv>
           </div>
 
-          <input type="submit" />
+          <button type="submit">지원하기</button>
         </form>
       </FormDiv>
     </>
@@ -71,4 +130,28 @@ const FormDiv = styled.div`
   background-color: #bac6f1;
   height: 100vh;
   padding: 20px;
+`;
+
+const WritingDiv = styled.div`
+  margin-bottom: 10px;
+`;
+
+const FormInputS = styled.input`
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin-left: 5px;
+  width: 250px;
+`;
+
+const FormTextarea = styled.textarea`
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin-right: 7px;
+`;
+
+const DivTextarea = styled.div`
+  display: flex;
+  align-items: end;
 `;
