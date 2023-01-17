@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ApplyForm from '../components/ApplyForm';
+import Modal from '../components/Modal';
 
 function Home() {
   const [islogin, setIsLogin] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const applyAndcontact = (e) => {
+  const showContact = (e) => {
     e.preventDefault();
-    e.target.innerText === '지원하기'
-      ? console.log('지원하기')
-      : console.log('문의하기');
+    setShowModal((current) => !current);
   };
 
   return (
@@ -19,15 +18,16 @@ function Home() {
         <Body>
           <Freshman>
             <ButtonBox>
-              <ApplyBtn onClick={(e) => applyAndcontact(e)}>
+              <ApplyBtn>
                 <Link to="/apply" style={{ textDecoration: 'none' }}>
                   지원하기
                 </Link>
               </ApplyBtn>
-              <ContactBtn onClick={(e) => applyAndcontact(e)}>
-                문의하기
-              </ContactBtn>
+              <ContactBtn onClick={(e) => showContact(e)}>문의하기</ContactBtn>
             </ButtonBox>
+            <Modal open={showModal} close={() => setShowModal(false)}>
+              <a href="https://www.naver.com">오픈 카카오톡</a>
+            </Modal>
           </Freshman>
         </Body>
       )}
