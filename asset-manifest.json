@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/pukyong-club/static/js/main.e30b9372.js",
+    "main.js": "/pukyong-club/static/js/main.24e51883.js",
     "index.html": "/pukyong-club/index.html",
-    "main.e30b9372.js.map": "/pukyong-club/static/js/main.e30b9372.js.map"
+    "main.24e51883.js.map": "/pukyong-club/static/js/main.24e51883.js.map"
   },
   "entrypoints": [
-    "static/js/main.e30b9372.js"
+    "static/js/main.24e51883.js"
   ]
 }
