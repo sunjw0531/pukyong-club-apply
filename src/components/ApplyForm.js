@@ -10,12 +10,7 @@ function ApplyForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      major: '부경대학교',
-      studentNumber: 20,
-    },
-  });
+  } = useForm();
 
   console.log(errors);
   const GlobalStyle = createGlobalStyle`
@@ -54,47 +49,63 @@ function ApplyForm() {
           >
             <div style={{ backgroundColor: '#F5F5DC' }}>
               <WritingDiv>
-                <label for="name">이름</label>
+                <label htmlFor="name">이름</label>
                 <FormInputS
                   id="name"
                   {...register('name', { required: true })}
                   placeholder="이름"
                 />
+                {errors.name?.type === 'required' && (
+                  <ErrorMessage role="alert">이름을 입력해주세요.</ErrorMessage>
+                )}
               </WritingDiv>
               <WritingDiv>
-                <label for="age">나이</label>
+                <label htmlFor="age">나이</label>
                 <FormInputS
                   id="age"
                   {...register('age', { required: true })}
                   placeholder="나이"
                 />
+                {errors.age?.type === 'required' && (
+                  <ErrorMessage role="alert">나이를 입력해주세요.</ErrorMessage>
+                )}
               </WritingDiv>
               <WritingDiv>
-                <label for="major">학과</label>
+                <label htmlFor="major">학과</label>
                 <FormInputS
                   id="major"
                   {...register('major', { required: true })}
                   placeholder="학과"
                 />
+                {errors.major?.type === 'required' && (
+                  <ErrorMessage role="alert">학과를 입력해주세요.</ErrorMessage>
+                )}
               </WritingDiv>
               <WritingDiv>
-                <label for="major">학번</label>
+                <label htmlFor="major">학번</label>
                 <FormInputS
                   id="studentNumber"
                   {...register('studentNumber', { required: true })}
                   placeholder="학번"
                 />
+                {errors.studentNumber?.type === 'required' && (
+                  <ErrorMessage role="alert">학번을 입력해주세요.</ErrorMessage>
+                )}
+                {}
               </WritingDiv>
               <WritingDiv>
-                <label for="hobby">취미</label>
+                <label htmlFor="hobby">취미 및 하는 게임</label>
                 <FormInputS
                   id="hobby"
                   {...register('hobby', { required: true })}
-                  placeholder="취미"
+                  placeholder="취미 및 하는 게임"
                 />
+                {errors.hobby?.type === 'required' && (
+                  <ErrorMessage role="alert">취미를 입력해주세요.</ErrorMessage>
+                )}
               </WritingDiv>
               <WritingDiv>
-                <label for="where">주로 게임하는 장소</label>
+                <label htmlFor="where">주로 게임하는 장소</label>
                 <br />
                 <input
                   type="checkbox"
@@ -108,18 +119,26 @@ function ApplyForm() {
                   value="피시방"
                 />
                 피시방
+                {errors.where?.type === 'required' && (
+                  <ErrorMessage role="alert">장소를 선택해주세요.</ErrorMessage>
+                )}
               </WritingDiv>
               <WritingDiv>
-                <label for="call">연락처</label>
+                <label htmlFor="call">연락처</label>
                 <FormInputS
                   id="call"
                   {...register('call', { required: true })}
                   placeholder="전화번호 혹은 카카오톡 ID를 적어주세요"
                 />
+                {errors.call?.type === 'required' && (
+                  <ErrorMessage role="alert">
+                    연락처를 입력해주세요.
+                  </ErrorMessage>
+                )}
               </WritingDiv>
 
               <WritingDiv>
-                <label for="introduce">자기소개 및 하고 싶은 말</label>
+                <label htmlFor="introduce">자기소개 및 하고 싶은 말</label>
                 <DivTextarea>
                   <FormTextarea
                     id="introduce"
@@ -131,6 +150,10 @@ function ApplyForm() {
                     onChange={(e) => setTALength(e.target.value.length)}
                   />
                   <span>{tALength === '' ? 0 : tALength} / 400자</span>
+                  <br />
+                  {errors.introduce?.type === 'required' && (
+                    <ErrorMessage role="alert">글을 입력해주세요.</ErrorMessage>
+                  )}
                 </DivTextarea>
               </WritingDiv>
             </div>
@@ -173,4 +196,8 @@ const FormTextarea = styled.textarea`
 const DivTextarea = styled.div`
   display: flex;
   align-items: end;
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
 `;
