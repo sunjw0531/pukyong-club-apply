@@ -75,16 +75,4 @@ const ApplyBtn = styled.button`
   }
 `;
 
-const ContactBtn = styled.button`
-  width: 100px;
-  height: 50px;
-  background-color: red;
-  border-radius: 50px;
-  font-size: 15px;
-  border: 1px solid;
-  transition: background-color 0.5s;
-  &:hover {
-    background-color: yellow;
-    cursor: pointer;
-  }
-`;
+const ContactBtn = styled(ApplyBtn)``;
