@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Modal from '../components/Modal';
+import Bg from '../images/pukyong-club.jpg';
 
 function Home() {
   const [islogin, setIsLogin] = useState(false);
@@ -19,9 +20,9 @@ function Home() {
           <Freshman>
             <ButtonBox>
               <ApplyBtn>
-                <Link to="/apply" style={{ textDecoration: 'none' }}>
+                <StyledLink to="/apply" style={{ textDecoration: 'none' }}>
                   지원하기
-                </Link>
+                </StyledLink>
               </ApplyBtn>
               <ContactBtn onClick={(e) => showContact(e)}>문의하기</ContactBtn>
             </ButtonBox>
@@ -36,6 +37,11 @@ function Home() {
 }
 
 export default Home;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+`;
 
 const Body = styled.div`
   display: flex;
@@ -48,7 +54,7 @@ const Freshman = styled.div`
   align-items: end;
   width: 700px;
   height: 1000px;
-  background-image: url('./pukyong-club.jpg');
+  background-image: url(${Bg});
   background-size: cover;
   background-potision: center;
 `;
