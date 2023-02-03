@@ -33,16 +33,12 @@ function ApplyForm() {
       '5Kv_TZgP8i_GtHGJA'
     );
   };
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ minWidth: 300, maxWidth: 500 });
-    return isMobile ? children : null;
-  };
 
-  const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 501 });
-    return isDesktop ? children : null;
-  };
-
+  const isMobile = useMediaQuery({
+    query: `( max-width: 500px)`,
+  });
+  const isDesktop = useMediaQuery({ query: `(min-width: 501px)` });
+  console.log(isMobile);
   return (
     <>
       <GlobalStyle />
@@ -53,7 +49,7 @@ function ApplyForm() {
         </FormDiv>
       ) : (
         <>
-          <Desktop>
+          {isDesktop && (
             <FormDiv>
               <Form
                 onSubmit={handleSubmit((data) => {
@@ -196,8 +192,8 @@ function ApplyForm() {
                 </FormDivMain>
               </Form>
             </FormDiv>
-          </Desktop>
-          <Mobile>
+          )}
+          {isMobile && (
             <MFormDiv>
               <Form
                 onSubmit={handleSubmit((data) => {
@@ -227,7 +223,7 @@ function ApplyForm() {
                     <MFormInputS
                       id="age"
                       {...register('age', { required: true })}
-                      placeholder="나이 *남성일 경우 군필 여부도!"
+                      placeholder="나이  * 남성은 군필 여부도!"
                     />
                     {errors.age?.type === 'required' && (
                       <MErrorMessage role="alert">
@@ -341,7 +337,7 @@ function ApplyForm() {
                 </MFormDivMain>
               </Form>
             </MFormDiv>
-          </Mobile>
+          )}
         </>
       )}
     </>
