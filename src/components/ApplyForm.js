@@ -15,22 +15,20 @@ function ApplyForm() {
     formState: { errors },
   } = useForm();
 
-  console.log(errors);
   const GlobalStyle = createGlobalStyle`
     html, body{
       font-family: 'Dongle', sans-serif;
       padding : 0;
-      margin : 0 10px 0 10px;
       font-size : 20px;
     }
   `;
 
   const sendApplication = (data) => {
     emailjs.send(
-      'service_887w5rd',
-      'template_1uwp9sh',
+      'service_whka7id',
+      'template_zko9o7d',
       data,
-      '5Kv_TZgP8i_GtHGJA'
+      'CGu8t6QHOde4ocUiq'
     );
   };
 
@@ -38,7 +36,7 @@ function ApplyForm() {
     query: `( max-width: 500px)`,
   });
   const isDesktop = useMediaQuery({ query: `(min-width: 501px)` });
-  console.log(isMobile);
+
   return (
     <>
       <GlobalStyle />
