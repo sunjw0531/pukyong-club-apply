@@ -28,12 +28,10 @@ function Home() {
               <ButtonBox>
                 <ApplyBtn>
                   <StyledLink to="/apply" style={{ textDecoration: 'none' }}>
-                    지 원 하 기
+                    지 원
                   </StyledLink>
                 </ApplyBtn>
-                <ContactBtn onClick={(e) => showContact(e)}>
-                  문 의 하 기
-                </ContactBtn>
+                <ContactBtn onClick={(e) => showContact(e)}>문 의</ContactBtn>
               </ButtonBox>
               <Modal open={showModal} close={() => setShowModal(false)}>
                 <a href="https://open.kakao.com/o/snPi4z2e">오픈 카카오톡</a>
@@ -45,12 +43,10 @@ function Home() {
               <MButtonBox>
                 <MApplyBtn>
                   <MStyledLink to="/apply" style={{ textDecoration: 'none' }}>
-                    지 원 하 기
+                    지 원
                   </MStyledLink>
                 </MApplyBtn>
-                <MContactBtn onClick={(e) => showContact(e)}>
-                  문 의 하 기
-                </MContactBtn>
+                <MContactBtn onClick={(e) => showContact(e)}>문 의</MContactBtn>
               </MButtonBox>
               <Modal open={showModal} close={() => setShowModal(false)}>
                 <a href="https://open.kakao.com/o/snPi4z2e">오픈 카카오톡</a>
@@ -138,7 +134,7 @@ const MFreshman = styled(Freshman)`
   background-image: url(${Bg});
   background-repeat: no-repeat;
   background-position: center center;
-  backgorund-size: 100% 100%;
+  background-size: 100% 100%;
 `;
 
 const MButtonBox = styled(ButtonBox)`

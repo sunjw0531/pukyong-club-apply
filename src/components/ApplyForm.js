@@ -22,13 +22,17 @@ function ApplyForm() {
       font-size : 20px;
     }
   `;
-
+  const emailJs = {
+    serviceId: process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+    templateId: process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+    publicKey: process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY,
+  };
   const sendApplication = (data) => {
     emailjs.send(
-      'service_whka7id',
-      'template_zko9o7d',
+      emailJs.serviceId,
+      emailJs.templateId,
       data,
-      'CGu8t6QHOde4ocUiq'
+      emailJs.publicKey
     );
   };
 
@@ -42,8 +46,11 @@ function ApplyForm() {
       <GlobalStyle />
       {isSent === true ? (
         <FormDiv>
-          <p>지원신청이 완료 되었습니다.</p>
-          <p>지원 내용을 검토 후 연락 드리겠습니다. 감사합니다.</p>
+          <p>
+            지원신청이 완료 되었습니다. <br />
+            지원 내용을 검토 후 연락 드리겠습니다. <br />
+            감사합니다.
+          </p>
         </FormDiv>
       ) : (
         <>
