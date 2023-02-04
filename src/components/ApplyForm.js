@@ -451,6 +451,7 @@ const MFormDivMain = styled(FormDivMain)`
 
 const MLabelText = styled(LabelText)`
   font-size: 20px;
+  margin-left: 5px;
 `;
 
 const MWritingDiv = styled(WritingDiv)`
@@ -497,7 +498,7 @@ const MSubmitBtn = styled(SubmitBtn)`
   border: 2px solid palevioletred;
   border-radius: 20px;
   background-color: white;
-  width: 200px;
-  height: 50px;
+  width: 180px;
+  height: 45px;
   font-weight: bold;
 `;
