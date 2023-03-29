@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ApplyForm from './components/ApplyForm.js';
 import Home from './pages/Home.js';
+import Main from './pages/Main.js';
 import Example from './components/Example.js';
 import { createGlobalStyle } from 'styled-components';
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/apply" element={<ApplyForm />} />
           <Route path="/example" element={<Example />} />
+          <Route path="/main" element={<Main />} />
         </Routes>
       </BrowserRouter>
     </>
