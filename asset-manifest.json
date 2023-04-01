@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pukyong-club/static/css/main.c2cab247.css",
-    "main.js": "/pukyong-club/static/js/main.6b1753f4.js",
-    "static/media/pukyong-club.jpg": "/pukyong-club/static/media/pukyong-club.e56bb53afdb34a2e1a4b.jpg",
-    "index.html": "/pukyong-club/index.html",
-    "main.c2cab247.css.map": "/pukyong-club/static/css/main.c2cab247.css.map",
-    "main.6b1753f4.js.map": "/pukyong-club/static/js/main.6b1753f4.js.map"
+    "main.css": "/pukyong-club-apply/static/css/main.c2cab247.css",
+    "main.js": "/pukyong-club-apply/static/js/main.85f8ba30.js",
+    "static/media/pukyong-club.jpg": "/pukyong-club-apply/static/media/pukyong-club.e56bb53afdb34a2e1a4b.jpg",
+    "index.html": "/pukyong-club-apply/index.html",
+    "main.c2cab247.css.map": "/pukyong-club-apply/static/css/main.c2cab247.css.map",
+    "main.85f8ba30.js.map": "/pukyong-club-apply/static/js/main.85f8ba30.js.map"
   },
   "entrypoints": [
     "static/css/main.c2cab247.css",
-    "static/js/main.6b1753f4.js"
+    "static/js/main.85f8ba30.js"
   ]
 }
