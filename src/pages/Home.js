@@ -27,7 +27,7 @@ function Home() {
             <Freshman>
               <ButtonBox>
                 <ApplyBtn>
-                  <StyledLink to="/apply" style={{ textDecoration: 'none' }}>
+                  <StyledLink to="/join" style={{ textDecoration: 'none' }}>
                     지 원
                   </StyledLink>
                 </ApplyBtn>
